@@ -1,16 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Noto+Serif+TC:wght@300;700&display=swap");
+
+:root {
+  --background-shallow-green: #edeec9;
+  --deep-green: #52b69a;
+  --light-green: #d9ed92;
+  --divid-deep-blue: #1a759f;
+  --font-deep-blue: #184e77;
+  --font-black: #3c4043;
+  --white: #ffffff;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  font-family: "Libre Baskerville", serif;
+  font-family: "Noto Serif TC", serif;
+  background-color: var(--background-shallow-green);
 }
 
 * {
   box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em 2em;
+  gap: 2em;
+}
+
+.pond {
+  padding: 2em 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--deep-green);
+  width: 100%;
+  min-width: 320px;
+  gap: 1em;
+}
+.pondTitle {
+  color: var(--white);
+  font-size: 2rem;
+  margin: 0;
+}
+.payloadBlock {
+  width: 100%;
+  padding: 0.5em 1em;
+  background-color: var(--light-green);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.paramTitle,
+.param {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--font-deep-blue);
+}
+.paramTitle {
+  border-right: var(--divid-deep-blue) 0.1em solid;
+}
+.param {
+  color: var(--font-black);
+}
+.mg::after {
+  content: "mg/L";
+  font-size: 0.1rem;
+}
+.mV::after {
+  content: "mV";
+  font-size: 0.1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+  }
+  .pond{
+  max-width: 400px;
+}
 }

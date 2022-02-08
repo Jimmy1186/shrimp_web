@@ -2,7 +2,7 @@
 
 :root {
   --background-shallow-green: #edeec9;
-  --deep-green: #52b69a;
+  --deep-green: #99D98C;
   --light-green: #d9ed92;
   --divid-deep-blue: #1a759f;
   --font-deep-blue: #184e77;
@@ -13,11 +13,16 @@
 html,
 body {
   padding: 0;
+  width: 100%;
   margin: 0;
   font-family: "Libre Baskerville", serif;
   font-family: "Noto Serif TC", serif;
-  background-color: var(--background-shallow-green);
-}
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  /* background-color: var(--background-shallow-green); */
+  display: flex;
+
+  flex-direction: column;
+  }
 
 * {
   box-sizing: border-box;
@@ -38,7 +43,7 @@ body {
   align-items: center;
   background-color: var(--deep-green);
   width: 100%;
-  min-width: 320px;
+  min-width: 300px;
   gap: 1em;
 }
 .pondTitle {
@@ -49,7 +54,7 @@ body {
 .payloadBlock {
   width: 100%;
   padding: 0.5em 1em;
-  background-color: var(--light-green);
+  background-color: var(--white);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -83,8 +88,28 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    max-width: 1360px;
   }
   .pond{
-  max-width: 400px;
+  min-width: 400px;
+  max-width: 420px;
+}
+}
+@media only screen and (min-width: 1400px) {
+  html,body{
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    max-width: 1400px;
+  }
+  .pond{
+    max-width: 392px;
 }
 }

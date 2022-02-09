@@ -1,6 +1,11 @@
 import Head from 'next/head'
 import useSWR from 'swr'
 import Ponds from '../components/Ponds'
+// const { POND_8_COLLECTION  } = require("../models/pond");
+// import dbConnect from "../utils/dbConnection";
+// dbConnect();
+
+
 
 const pond8fetcher = async()=>{
   const response = await fetch("http://localhost:3000/api/pond8Data")
@@ -26,7 +31,7 @@ export default function Home() {
   const{data:payload10,error10} = useSWR('pond10',pond10fetcher)
   // if(error8||error9||error10) return "data fetch fail"
 
-  if(!payload8) return "loading"
+ 
   if(!payload9) return "loading"
   if(!payload10) return "loading"
 
@@ -41,7 +46,7 @@ export default function Home() {
     <title>魚池參數</title>
     </Head>
     <div className='wrapper'>
-      <Ponds pondTitle={8} data={payload8}/>
+      {!payload8 ? "loading":(<Ponds pondTitle={8} data={payload8}/>)}
       <Ponds pondTitle={9} data={payload9}/>
       <Ponds pondTitle={10} data={payload10}/>
       

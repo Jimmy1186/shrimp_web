@@ -4,9 +4,6 @@ dbConnect();
 
 
 export default async function handler(req, res) {
-  const payload = await POND_10_COLLECTION.find().sort({'_id': -1}).limit(5);
-  console.log("10 up")
+  const payload = await POND_10_COLLECTION.find().sort({'_id': -1}).limit(1);
   res.json(payload);
- 
-  
 }

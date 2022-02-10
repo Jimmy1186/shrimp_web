@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Ponds({data,pondTitle}) {
+  console.log(data)
   return (
   <div className='pond'>
       <h2 className='pondTitle'>第{pondTitle}池</h2>

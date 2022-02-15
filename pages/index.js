@@ -4,10 +4,6 @@ import Ponds from "../components/Ponds";
 import axios from "axios";
 import Loading from "../components/Loading";
 
-const DNS = process.env.DNS;
-const POND_8_API = process.env.POND_8_API;
-const POND_9_API = process.env.POND_9_API;
-const POND_10_API = process.env.POND_10_API;
 
 
 export default function Home() {
@@ -15,19 +11,21 @@ export default function Home() {
   const [payload9, setPayload9] = useState([]);
   const [payload10, setPayload10] = useState([]);
 //
+
   useEffect(() => {
+   
     const fetchData = async () => {
-      const result8 = await axios(`${DNS}+${POND_8_API}`).catch(function (
+      const result8 = await axios(`${process.env.NEXT_PUBLIC_POND_8_API}`).catch(function (
         error
       ) {
         console.log(error);
       });
-      const result9 = await axios(`${DNS}+${POND_9_API}`).catch(function (
+      const result9 = await axios(`${process.env.NEXT_PUBLIC_POND_9_API}`).catch(function (
         error
       ) {
         console.log(error);
       });
-      const result10 = await axios(`${DNS}+${POND_10_API}`).catch(function (
+      const result10 = await axios(`${process.env.NEXT_PUBLIC_POND_10_API}`).catch(function (
         error
       ) {
         console.log(error);
@@ -35,6 +33,7 @@ export default function Home() {
       try {
         setPayload8(result8.data);
         setPayload9(result9.data);
+        console.log(result10)
         setPayload10(result10.data);
       } catch (error) {
         console.log(error);

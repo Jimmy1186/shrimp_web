@@ -1,16 +1,20 @@
 db.createUser(
   {
-    user: "UserAdmin",
-    pwd: "1234",
-    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+    user: "admin",
+    pwd: "password",
+    roles: [ { role: "root", db: "admin" } ]
   }
-)
+);
 
+mongo -u admin -p password --authenticationDatabase admin
 
 db.createUser(
   {
-    user: "UserShrimp",
+    user: "user2",
     pwd: "1234",
-    roles: [ { role: "read", db: "shrimp" } ]
+    roles: [ { role: "readWrite", db: "shrimp" } ]
   }
 )
+
+mongodb://admin:password@192.168.50.114:27017
+mongodb://UserShrimp:1234@192.168.50.114:27017

@@ -4,28 +4,32 @@ import Ponds from "../components/Ponds";
 import axios from "axios";
 import Loading from "../components/Loading";
 
-// }
+const DNS = process.env.DNS;
+const POND_8_API = process.env.POND_8_API;
+const POND_9_API = process.env.POND_9_API;
+const POND_10_API = process.env.POND_10_API;
+
 
 export default function Home() {
   const [payload8, setPayload8] = useState([]);
   const [payload9, setPayload9] = useState([]);
   const [payload10, setPayload10] = useState([]);
-
+//
   useEffect(() => {
     const fetchData = async () => {
-      const result8 = await axios("http://localhost:3000/api/pond8Data").catch(
-        function (error) {
-          console.log(error);
-        }
-      );
-      const result9 = await axios("http://localhost:3000/api/pond9Data").catch(
-        function (error) {
-          console.log(error);
-        }
-      );
-      const result10 = await axios(
-        "http://localhost:3000/api/pond10Data"
-      ).catch(function (error) {
+      const result8 = await axios(`${DNS}+${POND_8_API}`).catch(function (
+        error
+      ) {
+        console.log(error);
+      });
+      const result9 = await axios(`${DNS}+${POND_9_API}`).catch(function (
+        error
+      ) {
+        console.log(error);
+      });
+      const result10 = await axios(`${DNS}+${POND_10_API}`).catch(function (
+        error
+      ) {
         console.log(error);
       });
       try {

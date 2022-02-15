@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const URL = 'mongodb://localhost:27018/shrimp';
+const URL =process.env.MONGODB
 const connection = {};
 
 async function dbConnect() {

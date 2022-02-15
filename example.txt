@@ -1,0 +1,16 @@
+db.createUser(
+  {
+    user: "UserAdmin",
+    pwd: "1234",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+
+
+db.createUser(
+  {
+    user: "UserShrimp",
+    pwd: "1234",
+    roles: [ { role: "read", db: "shrimp" } ]
+  }
+)

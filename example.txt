@@ -5,8 +5,11 @@ db.createUser(
     roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
   }
 )
+root
+s2022h0r2i1m6p
 
-
+webUser
+B9Q30
 db.createUser(
   {
     user: "UserShrimp",

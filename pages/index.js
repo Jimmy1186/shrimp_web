@@ -60,7 +60,7 @@ export default function Home() {
 
     setInterval(async () => {
       fetchData();
-    }, 5000);
+    }, 20000);
     return () => {
       clearInterval();
     };

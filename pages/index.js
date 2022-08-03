@@ -4,12 +4,12 @@ import Ponds from "../components/Ponds";
 import axios from "axios";
 import Loading from "../components/Loading";
 
-const DNS = process.env.DNS;
-const POND_6_API = process.env.POND_6_API;
-const POND_7_API = process.env.POND_7_API;
-const POND_8_API = process.env.POND_8_API;
-const POND_9_API = process.env.POND_9_API;
-const POND_10_API = process.env.POND_10_API;
+const DNS = process.env.NEXT_PUBLIC_DNS;
+const POND_6_API = process.env.NEXT_PUBLIC_POND_6_API;
+const POND_7_API = process.env.NEXT_PUBLIC_POND_7_API;
+const POND_8_API = process.env.NEXT_PUBLIC_POND_8_API;
+const POND_9_API = process.env.NEXT_PUBLIC_POND_9_API;
+const POND_10_API = process.env.NEXT_PUBLIC_POND_10_API;
 
 export default function Home() {
   const [payload6, setPayload6] = useState([]);
@@ -20,32 +20,35 @@ export default function Home() {
   //
   useEffect(() => {
     const fetchData = async () => {
-      const result6 = await axios(`${DNS}+${POND_6_API}`).catch(function (
+      const result6 = await axios(`${DNS}${POND_6_API}`).catch(function (
         error
       ) {
         console.log(error);
       });
-      const result7 = await axios(`${DNS}+${POND_7_API}`).catch(function (
+      const result7 = await axios(`${DNS}${POND_7_API}`).catch(function (
         error
       ) {
         console.log(error);
       });
-      const result8 = await axios(`${DNS}+${POND_8_API}`).catch(function (
+      const result8 = await axios(`${DNS}${POND_8_API}`).catch(function (
         error
       ) {
         console.log(error);
       });
-      const result9 = await axios(`${DNS}+${POND_9_API}`).catch(function (
+      const result9 = await axios(`${DNS}${POND_9_API}`).catch(function (
         error
       ) {
         console.log(error);
       });
-      const result10 = await axios(`${DNS}+${POND_10_API}`).catch(function (
+      const result10 = await axios(`${DNS}${POND_10_API}`).catch(function (
         error
       ) {
         console.log(error);
       });
+
+      
       try {
+  
         setPayload6(result6.data);
         setPayload7(result7.data);
         setPayload8(result8.data);
@@ -60,7 +63,7 @@ export default function Home() {
 
     setInterval(async () => {
       fetchData();
-    }, 5000);
+    }, 10000);
     return () => {
       clearInterval();
     };
